@@ -91,14 +91,17 @@ namespace SData
 
                 SqlDataReader sdr = cmd.ExecuteReader();
 
+                int Cnum = 1;
                 while (sdr.Read())
                 {
+                    
                     Student S = new Student();
-                    S.Id = Convert.ToInt32(sdr["Id"]);
+                    S.Id = Cnum;
                     S._Name = sdr["Name"] + " ";
                     S.No = sdr["No"] + " ";
                     S.Score = Convert.ToInt32(sdr["Score"]);
                     grid1.Rows.Add(S.Id, S._Name, S.No, S.Score);
+                    Cnum++;
                 }
                 
                 
